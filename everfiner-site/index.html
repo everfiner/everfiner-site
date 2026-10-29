@@ -323,8 +323,10 @@
     });
 
     // Top photo moves slower than the page (the "parallax" effect)
+    // (skipped on phones, where it can feel jumpy)
     var heroPhoto = document.querySelector('.hero-photo');
     window.addEventListener('scroll', function () {
+      if (window.innerWidth < 768) { heroPhoto.style.transform = ''; return; }
       if (window.scrollY < 1200) heroPhoto.style.transform = 'translateY(' + window.scrollY * 0.45 + 'px)';
     }, { passive: true });
 

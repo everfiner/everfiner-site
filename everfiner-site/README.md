@@ -6,9 +6,9 @@ This is the whole website for everfinerband.com. It's just three kinds of files:
 - **styles.css**: colors, fonts and sizes
 - **images/**: every photo the site uses
 
-Phones see the Linktree-style page, and computers see the full page. Both are in `index.html`. The phone part is near the top (look for `PHONE VERSION`), and the desktop part comes after it (look for `DESKTOP VERSION`).
+Computers and phones both see the full page (`DESKTOP VERSION` in `index.html`), resized to fit the screen. The older Linktree-style phone page is still there too (`PHONE VERSION`), switched off. See "Phone layout" at the bottom.
 
-When you save a change in GitHub, Netlify updates the live site by itself within about a minute.
+When you save a change in GitHub, the live site updates by itself within about a minute.
 
 ---
 
@@ -86,3 +86,7 @@ People type their email into the "Join the newsletter" box under the first video
 9. Commit. Sign-ups now go straight into your sheet. Duplicate emails are skipped automatically.
 
 Until step 8 is done, the box just says "Sign-ups open soon!"
+
+## Phone layout
+
+Right now, phones show the full site, resized to fit a phone screen. The older Linktree-style phone page (big purple buttons) is still in `index.html`, just switched off. To switch it back on, open `styles.css`, search for `PHONE SWITCH`, and delete the 3 lines right under that comment. Then commit.

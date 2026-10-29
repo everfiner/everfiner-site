@@ -188,6 +188,12 @@ a { color: inherit; text-decoration: none; }
   body { background: #411e06; }
 }
 
+/* PHONE SWITCH: phones now get the full site (resized at the bottom of this file).
+   To bring back the Linktree-style phone page instead, delete these 3 lines. */
+.phone { display: none; }
+.desktop { display: block; }
+body { background: #411e06; }
+
 .desktop {
   --brown: #411e06;
   --peach: rgba(255, 203, 170, 0.77);
@@ -728,3 +734,97 @@ a { color: inherit; text-decoration: none; }
   transition: border-color 0.15s, background 0.15s, color 0.15s;
 }
 .kit-btn:hover { border-color: #f6b3bd; background: rgba(196, 90, 128, 0.25); color: #fff; }
+
+
+/* =========================================================
+   FULL SITE ON PHONES (screens under 768px wide)
+   ========================================================= */
+@media (max-width: 767px) {
+  /* top photo + title */
+  /* whole band photo across the top, buttons on the dark fade below it */
+  .hero {
+    height: auto;
+    padding: calc(70vw - 10px) 0 30px;
+    display: flex;
+    flex-direction: column;
+    background: #4a2318;
+  }
+  .hero-photo { height: 76vw; object-position: center top; }
+  .hero::after {
+    top: 40vw;
+    bottom: auto;
+    height: 37vw;
+    background: linear-gradient(180deg, rgba(74, 35, 22, 0), #4a2318);
+  }
+  .hero-title {
+    top: 5vw;
+    font-size: 8.2vw;
+    letter-spacing: 0.3em;
+    padding-left: 0.3em;
+  }
+  .side-socials {
+    position: relative;
+    top: auto; right: auto;
+    flex-direction: row;
+    justify-content: center;
+    gap: 14px;
+    margin: 0 auto 22px;
+    z-index: 1;
+  }
+  .hero-buttons { position: relative; bottom: auto; gap: 14px; }
+  .hero-buttons .row { gap: 14px; }
+  .peach { min-width: 140px; }
+
+  /* music, video, newsletter stacked full width */
+  .music-row { padding: 70px 20px 90px; gap: 50px; }
+  .bandcamp-frame, .right-col { width: 100%; max-width: 400px; }
+  .bandcamp { width: 100%; }
+  .right-col { gap: 50px; }
+  .newsletter { padding: 24px 18px 18px; }
+  .newsletter-title { font-size: 14px; }
+  .newsletter-sub { font-size: 14px; }
+
+  /* slimmer neon rings so nothing spills off the screen */
+  .neon::before { inset: -7px; border-radius: 22px; }
+  .neon::after { inset: -14px; border-radius: 28px; }
+
+  /* flowers smaller, triangles only in the bottom glow band */
+  .f1 { width: 80px; right: 6%; bottom: 10px; }
+  .f2 { width: 100px; right: 26%; bottom: -20px; }
+  .f3 { width: 44px; right: 2%; bottom: -24px; }
+  .mesh:not(.mesh-bottom) .tri, .sun { display: none; }
+
+  /* shows */
+  .shows { padding: 0 20px; }
+  .shows-frame { padding: 26px 14px 16px; margin-top: 10px; }
+  .shows-title { font-size: 12px; letter-spacing: 0.16em; }
+
+  /* bio */
+  .bio { padding: 70px 22px 90px; }
+  .pencil-wrap { height: auto; text-align: center; padding: 74px 0 6px; margin-bottom: 26px; }
+  .bio-title { position: static; font-size: 15px; letter-spacing: 0.2em; line-height: 1.7; }
+  .f4 { width: 62px; left: calc(50% - 52px); top: 0; }
+  .f5 { width: 30px; left: calc(50% + 16px); top: 4px; }
+
+  /* videos one per row */
+  .videos { padding: 60px 0 70px; }
+  .video-grid { grid-template-columns: 1fr; padding: 0 20px; gap: 30px; }
+  .vid { padding: 0; }
+  .vid span { padding: 12px 4px 0; font-size: 16px; }
+
+  /* band members two per row, names under photos */
+  .members { grid-template-columns: repeat(2, 1fr); padding: 50px 16px 80px; row-gap: 30px; }
+  .member { grid-template-rows: auto auto; }
+  .member img { grid-row: 1; width: 120px; height: 120px; }
+  .member figcaption, .member.up figcaption { grid-row: 2; align-self: start; padding: 12px 0 0; }
+  .member strong { font-size: 13px; }
+  .member span { font-size: 10px; }
+  .definition { width: 240px; margin-top: 30px; }
+
+  /* fading photos, EPK, bottom glow */
+  .slideshow, .slideshow.neon { max-width: calc(100% - 48px); margin: 70px auto 60px; }
+  .media-kit { padding: 20px 20px 50px; }
+  .mesh-bottom { height: 220px; }
+  .t6 { width: 110px; top: 40px; left: 8%; }
+  .t7 { width: 70px; top: 90px; right: 10%; }
+}

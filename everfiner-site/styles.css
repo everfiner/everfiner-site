@@ -518,12 +518,17 @@ body { background: #411e06; }
   width: 100%;
   height: 100%;
   object-fit: cover;
-  animation: fade 12s infinite;
+  animation: fade 30s infinite;
 }
-.slideshow img:nth-child(2) { animation-delay: -6s; }
+/* 5 photos, 6 seconds each. Adding a photo? Change 30s above to 6s x photos,
+   and give each photo after the first a delay of -(30 - 6 x its spot before it). */
+.slideshow img:nth-child(2) { animation-delay: -24s; }
+.slideshow img:nth-child(3) { animation-delay: -18s; }
+.slideshow img:nth-child(4) { animation-delay: -12s; }
+.slideshow img:nth-child(5) { animation-delay: -6s; }
 @keyframes fade {
-  0%, 42%   { opacity: 1; }
-  50%, 92%  { opacity: 0; }
+  0%, 16%   { opacity: 1; }
+  20%, 96%  { opacity: 0; }
   100%      { opacity: 1; }
 }
 

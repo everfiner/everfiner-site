@@ -232,10 +232,11 @@
       </section>
 
       <!-- VIDEOS: click a thumbnail to play it right here.
-           To add a video: copy one <button> block and change the video code (data-id) and title. -->
+           To add a video: copy one <button> block and change the video code (data-id) and title.
+           Optional: data-start="348" makes it start that many seconds in. -->
       <section class="videos" id="videos">
         <div class="video-grid">
-          <button class="vid" data-id="alRtj8sSQms"><img src="https://i.ytimg.com/vi/alRtj8sSQms/hqdefault.jpg" alt=""><span>The Rockwell - Shimmer Funk EP Release Show (Full Set) -- EVERFINER (Live)</span></button>
+          <button class="vid" data-id="alRtj8sSQms" data-start="348"><img src="https://i.ytimg.com/vi/alRtj8sSQms/hqdefault.jpg" alt=""><span>Arm's Length @ The Rockwell (Live)</span></button>
           <button class="vid" data-id="Un_yBILKLos"><img src="https://i.ytimg.com/vi/Un_yBILKLos/hqdefault.jpg" alt=""><span>Sando (Official Music Video) - EVERFINER</span></button>
           <button class="vid" data-id="CKiqoBkckgI"><img src="https://i.ytimg.com/vi/CKiqoBkckgI/hqdefault.jpg" alt=""><span>Hotties Express (Official Music Video) - EVERFINER</span></button>
           <button class="vid" data-id="HfCNUGCvFBM"><img src="https://i.ytimg.com/vi/HfCNUGCvFBM/hqdefault.jpg" alt=""><span>Sonia - Full Set - EVERFINER (Live)</span></button>
@@ -334,7 +335,8 @@
     document.querySelectorAll('button.vid').forEach(function (btn) {
       btn.addEventListener('click', function () {
         var frame = document.createElement('iframe');
-        frame.src = 'https://www.youtube.com/embed/' + btn.dataset.id + '?autoplay=1';
+        frame.src = 'https://www.youtube.com/embed/' + btn.dataset.id + '?autoplay=1' +
+          (btn.dataset.start ? '&start=' + btn.dataset.start : '');
         frame.allow = 'autoplay; encrypted-media; picture-in-picture';
         frame.allowFullscreen = true;
         btn.querySelector('img').replaceWith(frame);
